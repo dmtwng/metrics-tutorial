@@ -11,3 +11,8 @@ scrape_configs:
     static_configs:
       - targets:
           - 'prometheus:9090'
+  - job_name: spring-boot
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets:
+          - 'metrics-tutorial:8080'

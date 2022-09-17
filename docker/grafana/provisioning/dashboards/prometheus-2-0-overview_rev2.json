@@ -5,7 +5,7 @@
       "label": "prometheus",
       "description": "A prometheus server with prometheus server metrics",
       "type": "datasource",
-      "pluginId": "prometheus",
+      "pluginId": "Prometheus",
       "pluginName": "Prometheus"
     }
   ],
