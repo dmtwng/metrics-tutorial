@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  prometheus:
+    image: prom/prometheus:v2.38.0
+    ports:
+      - 9090:9090
+    volumes:
+      - ./docker/prometheus:/etc/prometheus
+      - prometheus-data:/prometheus
+    command: --web.enable-lifecycle  --config.file=/etc/prometheus/prometheus.yml
+  grafana:
+    image: grafana/grafana:9.1.0
+    ports:
+      - 3000:3000
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+    volumes:
+      - ./docker/grafana/provisioning/:/etc/grafana/provisioning/
+      - grafana-data:/var/lib/grafana
+    env_file:
+      - ./docker/grafana/env.config
+
+volumes:
+  prometheus-data:
+  grafana-data:
