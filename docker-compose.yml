@@ -2,7 +2,7 @@ version: '3'
 
 services:
   metrics-tutorial:
-    image: dmytrowng/metrics-tutorial:latest
+    image: dmytrowng/metrics-tutorial:0.3.0
     ports:
       - 8080:8080
   prometheus:
