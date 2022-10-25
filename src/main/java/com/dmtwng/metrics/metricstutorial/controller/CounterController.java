@@ -14,16 +14,19 @@ public class CounterController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CounterController.class);
 
-    private Counter requestsCounter;
+    private Counter requestsCounterTest;
 
     public CounterController(MeterRegistry meterRegistry) {
-        this.requestsCounter = meterRegistry.counter("requests.count.test");
+        this.requestsCounterTest = Counter.builder("requests.count.test")
+                .description("Custom metric, counting number of call to the endpoint counter/count")
+                .register(meterRegistry);
     }
 
     @GetMapping("/count")
-    public void count() {
-        requestsCounter.increment();
+    public String count() {
+        requestsCounterTest.increment();
         LOGGER.info("Counter has been incremented");
+        return "Current count: %.0f".formatted(requestsCounterTest.count());
     }
 
 }
