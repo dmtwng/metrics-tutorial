@@ -1,26 +1,38 @@
-## Docker
+Tutorial project on software monitoring topic.
 
-Build application docker 
+---
 
-```shell
-./mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=dmytrowng/metrics-tutorial
-```
+## Docker Compose
 
-Start docker images
+Start docker compose from root directory:
 
 ```shell
 docker compose up
 ```
 
-### Grafana
+`docker-compose.yaml` contains definitions for 3 containers:
+ 
+- **Tutorial Application**: Java Spring Boot Application with Actuator and set of custom metrics;
 
-Open Grafana home page: http://localhost:3000.
+  Actuator endpoint: http://localhost:8080/actuator
 
-**Username**: admin
+- **Prometheus** with scraper configured to scrape metrics from application and itself;
 
-**Password**: pass
+  Home page: http://localhost:9090/graph
 
-User dashboards:
+- **Grafana** with configured Prometheus as a data source and few dashboards.
 
-- [Prometheus 2.0 Overview](https://grafana.com/grafana/dashboards/3662-prometheus-2-0-overview/)
-- [Spring Boot 2.1 System Monitor](https://grafana.com/grafana/dashboards/11378-justai-system-monitor/)
+  Used dashboards:
+
+  - [Prometheus 2.0 Overview](https://grafana.com/grafana/dashboards/3662-prometheus-2-0-overview/)
+  - [Spring Boot 2.1 System Monitor](https://grafana.com/grafana/dashboards/11378-justai-system-monitor/)
+
+## Application
+
+Docker images of application stored [here](https://hub.docker.com/repository/docker/dmytrowng/metrics-tutorial).
+
+Build application docker image locally: 
+
+```shell
+./mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=dmytrowng/metrics-tutorial
+```
