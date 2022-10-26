@@ -22,6 +22,12 @@ docker compose up
 
 - **Grafana** with configured Prometheus as a data source and few dashboards.
 
+  Grafana home page: http://localhost:3000.
+
+  **Username**: admin
+
+  **Password**: pass
+
   Used dashboards:
 
   - [Prometheus 2.0 Overview](https://grafana.com/grafana/dashboards/3662-prometheus-2-0-overview/)
