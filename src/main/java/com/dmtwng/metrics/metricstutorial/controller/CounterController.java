@@ -14,7 +14,7 @@ public class CounterController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CounterController.class);
 
-    private Counter requestsCounterTest;
+    private final Counter requestsCounterTest;
 
     public CounterController(MeterRegistry meterRegistry) {
         this.requestsCounterTest = Counter.builder("requests.count.test")
