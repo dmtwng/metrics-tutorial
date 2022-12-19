@@ -24,7 +24,7 @@ public class CallCenterController {
         // Register gauge to get size from collection
         Gauge.builder("callcenter.operators.number", operators::size)
                 .strongReference(true)
-                .description("Custom metric, get number of operators in call center")
+                .description("Custom metric, number of operators in call center")
                 .register(meterRegistry);
         this.registeredCounter = Counter.builder("callcenter.operators.registered.count")
                 .description("Custom metric, count or successful operator register events")
