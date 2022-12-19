@@ -35,10 +35,10 @@ docker compose up
 
 ## Application
 
-Docker images of application stored [here](https://hub.docker.com/repository/docker/dmytrowng/metrics-tutorial).
+Docker images of application stored [here](https://hub.docker.com/repository/docker/dmtwng/metrics-tutorial).
 
 Build application docker image locally: 
 
 ```shell
-./mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=dmytrowng/metrics-tutorial
+./mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=dmtwng/metrics-tutorial
 ```
